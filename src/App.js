@@ -1,14 +1,12 @@
-import Sudoku from './components/Sudoku'
-import Difficulty from './components/Difficulty'
-import Button from './components/Button'
+import SudokuContainer from './components/SudokuContainer';
 
 function App() {
   return (
-    <div className="App">
-      Soduko - Game
-      <Sudoku />
-      <Difficulty />
-      <Button />
+    <div className='App'>
+      <main>
+        <h1>Soduko</h1>
+        <SudokuContainer />
+      </main>
     </div>
   );
 }

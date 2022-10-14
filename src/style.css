@@ -1,1 +1,130 @@
-body{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}body .App{padding-top:2rem}
+@-webkit-keyframes active {
+  from {
+    box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 10px 0px rgba(0, 0, 250, 0.6);
+  }
+  to {
+    box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 3px 3px #cecfd1;
+  }
+}
+@keyframes active {
+  from {
+    box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 10px 0px rgba(0, 0, 250, 0.6);
+  }
+  to {
+    box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 3px 3px #cecfd1;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background: #dde1e7;
+}
+body .App {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  text-align: center;
+}
+body .App .game-container {
+  display: flex;
+}
+body .App .game-container .table-container table {
+  border: 2px solid #828488;
+  border-collapse: collapse;
+  border-radius: 20px;
+  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+body .App .game-container .table-container table td {
+  padding: 0;
+}
+body .App .game-container .table-container table td .cInput {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid darkgrey;
+  cursor: pointer;
+}
+body .App .game-container .table-container table .bottom-border {
+  border-bottom: 2px solid #828488;
+}
+body .App .game-container .table-container table .right-border {
+  border-right: 2px solid #828488;
+}
+body .App .game-container .upper-btn-container,
+body .App .game-container .lower-btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body .App .game-container button {
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+  background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%);
+  border-radius: 30px;
+  border: 1px solid #8f9092;
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 3px 0 #cecfd1;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #606060;
+  text-shadow: 0 1px #fff;
+  margin: 0.5rem;
+}
+body .App .game-container button::-moz-focus-inner {
+  border: 0;
+}
+body .App .game-container button > * {
+  transition: transform 0.2s ease;
+}
+body .App .game-container button:hover {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 3px 3px #cecfd1;
+}
+body .App .game-container button > * {
+  transform: scale(0.975);
+}
+body .App .game-container button:focus:not(:active) {
+  -webkit-animation: active 0.9s alternate infinite;
+          animation: active 0.9s alternate infinite;
+  outline: none;
+}
+body .App .game-container button:active {
+  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+body .App .game-container button > * {
+  transform: scale(0.95);
+}
+body .App .game-container #easy-btn {
+  background-image: linear-gradient(to top, #40dd69 0%, #d0efdc 80%, #f7fffa 100%);
+}
+body .App .game-container #medium-btn {
+  background-image: linear-gradient(to top, #40c6dd 0%, #d0efef 80%, #f7feff 100%);
+}
+body .App .game-container #hard-btn {
+  background-image: linear-gradient(to top, #dd5240 0%, #efd0d8 80%, #fffcf7 100%);
+}
+body .App .game-container #check-btn {
+  color: teal;
+}
+body .App .game-container #solve-btn {
+  color: red;
+}
+body .App .game-container #reset-btn {
+  color: black;
+}/*# sourceMappingURL=style.css.map */

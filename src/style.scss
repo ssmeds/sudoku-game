@@ -1,11 +1,170 @@
+$background: #f8f8f8;
+$button-gradient: #d8d9db 0%, #fff 80%, #fdfdfd 100%;
+$button-border: #8f9092;
+$button-text: #606060;
+
+$highlight-bottom: 0 4px 3px 1px #fcfcfc;
+$shadow-bottom: 0 6px 8px #d6d7d9;
+$shadow-top: 0 -4px 4px #cecfd1;
+$highlight-top: 0 -6px 4px #fefefe;
+$shadow-inset: inset 0 0 3px 0 #cecfd1;
+$shadow-inset-hover: inset 0 0 3px 3px #cecfd1;
+$shadow-inset-focus: inset 0 0 10px 0px rgba(0, 0, 250, 0.6);
+$shadow-inset-active: inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+
+$button-shadow-base: $highlight-bottom, $shadow-bottom, $shadow-top, $highlight-top;
+$button-shadow-default: $button-shadow-base, $shadow-inset;
+$button-shadow-hover: $button-shadow-base, $shadow-inset-hover;
+$button-shadow-focus: $button-shadow-base, $shadow-inset-focus;
+$button-shadow-active: $button-shadow-base, $shadow-inset-active;
+
+@keyframes active {
+  from {
+    box-shadow: $button-shadow-focus;
+  }
+  to {
+    box-shadow: $button-shadow-hover;
+  }
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-
+  // background: linear-gradient(#e66465, #9198e5);
+  background: #dde1e7;
   .App {
-    padding-top: 2rem;
+    // padding-top: 2rem;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    text-align: center;
+
+    .game-container {
+      display: flex;
+
+      .table-container {
+        // border-radius: 20px;
+        // border: 1px solid beige;
+        // display: flex;
+        table {
+          border: 2px solid #828488;
+          border-collapse: collapse;
+          // box-shadow: 0 0 10px;
+          border-radius: 20px;
+          box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
+          // border: 2px solid beige;
+          td {
+            padding: 0;
+            .cInput {
+              padding: 0;
+              width: 40px;
+              height: 40px;
+              font-size: 20px;
+              text-align: center;
+              border: 1px solid darkgrey;
+              // cursor: url(./images/Pen-5-icon.png), auto;
+              cursor: pointer;
+            }
+          }
+          .bottom-border {
+            border-bottom: 2px solid #828488;
+          }
+          .right-border {
+            border-right: 2px solid #828488;
+          }
+        }
+      }
+
+      // aside {
+      //   display: flex;
+      //   flex-direction: column;
+      //   justify-content: center;
+      //   // align-items: center;
+      //   width: 20vw;
+      //   margin-left: 1rem;
+      .upper-btn-container,
+      .lower-btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      // .lower-btn-container {
+      //   display: flex;
+      // }
+
+      button {
+        -webkit-appearance: none;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        cursor: pointer;
+        width: 50px;
+        height: 40px;
+        background-image: linear-gradient(to top, $button-gradient);
+        border-radius: 30px;
+        border: 1px solid $button-border;
+        box-shadow: $button-shadow-default;
+        transition: all 0.2s ease;
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: $button-text;
+        text-shadow: 0 1px #fff;
+        margin: 0.5rem;
+
+        &::-moz-focus-inner {
+          border: 0;
+        }
+        & > * {
+          transition: transform 0.2s ease;
+        }
+        &:hover {
+          box-shadow: $button-shadow-hover;
+        }
+        & > * {
+          transform: scale(0.975);
+        }
+        &:focus:not(:active) {
+          animation: active 0.9s alternate infinite;
+          outline: none;
+        }
+        &:active {
+          box-shadow: $button-shadow-active;
+        }
+        & > * {
+          transform: scale(0.95);
+        }
+        // }
+
+        // border-radius: 20px;
+        // box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
+
+        // cursor: pointer;
+      }
+      #easy-btn {
+        background-image: linear-gradient(to top, #40dd69 0%, #d0efdc 80%, #f7fffa 100%);
+      }
+      #medium-btn {
+        background-image: linear-gradient(to top, #40c6dd 0%, #d0efef 80%, #f7feff 100%);
+      }
+      #hard-btn {
+        background-image: linear-gradient(to top, #dd5240 0%, #efd0d8 80%, #fffcf7 100%);
+      }
+      #check-btn {
+        color: teal;
+      }
+      #solve-btn {
+        color: red;
+      }
+      #reset-btn {
+        color: black;
+      }
+    }
   }
 }
