@@ -73,12 +73,13 @@ export const recSolveGame = (grid, row = 0, col = 0) => {
 
 // comparing the solutions
 export const compareGames = (changedArray, solvedGame) => {
+  console.log({ changedArray, solvedGame });
   let results = {
     isSolved: true,
     isSolvable: true,
   };
-  for (let ir = 1; ir < 9; ir++) {
-    for (let ic = 1; ic < 9; ic++) {
+  for (let ir = 0; ir < 8; ir++) {
+    for (let ic = 0; ic < 8; ic++) {
       if (changedArray[ir][ic] !== solvedGame[ir][ic]) {
         if (changedArray[ir][ic] !== -1) {
           results.isSolvable = false;
@@ -88,4 +89,37 @@ export const compareGames = (changedArray, solvedGame) => {
     }
   }
   return results;
+};
+
+export const messages = (msg) => {
+  console.log('msg', msg);
+  let msgDiv = document.body.querySelector('#msg-div');
+  msgDiv.innerHTML = '';
+  if (msg === 'error') {
+    msgDiv.innerHTML = `<h4>Du har gjort ett fel</h4>`;
+  } else if (msg === 'correct') {
+    msgDiv.innerHTML = `<h4>Du är på rätt spår, fortsätt</h4>`;
+  } else if (msg === 'solved') {
+    msgDiv.innerHTML = `<h3>Grattis, du har klarat det!</h3>`;
+  } else if (msg === 'reset') {
+    msgDiv.innerHTML = '';
+  }
+};
+
+export const checkOnInputChange = (originalArray, changedArray) => {
+  console.log({ originalArray, changedArray });
+  const originalCopy = (arr) => {
+    return JSON.parse(JSON.stringify(arr));
+  };
+  let game = originalCopy(originalArray);
+  recSolveGame(game);
+  let result = compareGames(changedArray, game);
+  console.log('result: ', result);
+  if (result.isSolved) {
+    messages('solved');
+  } else if (result.isSolvable) {
+    messages('correct');
+  } else if (!result.isSolvable) {
+    messages('error');
+  }
 };

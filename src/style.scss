@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&display=swap");
+
 $background: #f8f8f8;
 $button-gradient: #d8d9db 0%, #fff 80%, #fdfdfd 100%;
 $button-border: #8f9092;
@@ -18,6 +20,8 @@ $button-shadow-hover: $button-shadow-base, $shadow-inset-hover;
 $button-shadow-focus: $button-shadow-base, $shadow-inset-focus;
 $button-shadow-active: $button-shadow-base, $shadow-inset-active;
 
+$font-family: "Josefin Sans", sans-serif;
+
 @keyframes active {
   from {
     box-shadow: $button-shadow-focus;
@@ -27,15 +31,18 @@ $button-shadow-active: $button-shadow-base, $shadow-inset-active;
   }
 }
 body {
+  font-family: $font-family;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  // background: linear-gradient(#e66465, #9198e5);
-  background: #dde1e7;
+  // background: #dde1e7;
+  background-image: url("../src/img/33401.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   .App {
-    // padding-top: 2rem;
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -46,16 +53,12 @@ body {
       display: flex;
 
       .table-container {
-        // border-radius: 20px;
-        // border: 1px solid beige;
-        // display: flex;
+        background: white;
         table {
           border: 2px solid #828488;
           border-collapse: collapse;
-          // box-shadow: 0 0 10px;
           border-radius: 20px;
           box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
-          // border: 2px solid beige;
           td {
             padding: 0;
             .cInput {
@@ -65,8 +68,8 @@ body {
               font-size: 20px;
               text-align: center;
               border: 1px solid darkgrey;
-              // cursor: url(./images/Pen-5-icon.png), auto;
               cursor: pointer;
+              font-family: $font-family;
             }
           }
           .bottom-border {
@@ -78,26 +81,15 @@ body {
         }
       }
 
-      // aside {
-      //   display: flex;
-      //   flex-direction: column;
-      //   justify-content: center;
-      //   // align-items: center;
-      //   width: 20vw;
-      //   margin-left: 1rem;
-      .upper-btn-container,
-      .lower-btn-container {
+      .left-btn-container,
+      .right-btn-container {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
       }
 
-      // .lower-btn-container {
-      //   display: flex;
-      // }
-
       button {
-        -webkit-appearance: none;
+        // -webkit-appearance: none;
         user-select: none;
         display: flex;
         align-items: center;
@@ -106,13 +98,14 @@ body {
         cursor: pointer;
         width: 50px;
         height: 40px;
-        background-image: linear-gradient(to top, $button-gradient);
+        // background-image: linear-gradient(to top, $button-gradient);
         border-radius: 30px;
         border: 1px solid $button-border;
-        box-shadow: $button-shadow-default;
+        box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.45), 3px 3px 9px rgba(94, 104, 121, 0.3);
+        // box-shadow: $button-shadow-default;
         transition: all 0.2s ease;
-        font-family: "Source Sans Pro", sans-serif;
-        font-size: 0.6rem;
+        font-family: $font-family;
+        font-size: 0.8rem;
         font-weight: 600;
         color: $button-text;
         text-shadow: 0 1px #fff;
@@ -140,12 +133,6 @@ body {
         & > * {
           transform: scale(0.95);
         }
-        // }
-
-        // border-radius: 20px;
-        // box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
-
-        // cursor: pointer;
       }
       #easy-btn {
         background-image: linear-gradient(to top, #40dd69 0%, #d0efdc 80%, #f7fffa 100%);
@@ -164,6 +151,18 @@ body {
       }
       #reset-btn {
         color: black;
+      }
+    }
+
+    #msg-div {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      h4 {
+        background: white;
+        padding: 0.5rem 1rem;
+        width: fit-content;
+        border-radius: 20px;
       }
     }
   }

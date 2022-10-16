@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&display=swap");
 @-webkit-keyframes active {
   from {
     box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 10px 0px rgba(0, 0, 250, 0.6);
@@ -15,12 +16,16 @@
   }
 }
 body {
+  font-family: "Josefin Sans", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  background: #dde1e7;
+  background-image: url("../src/img/33401.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 body .App {
   display: flex;
@@ -31,6 +36,9 @@ body .App {
 }
 body .App .game-container {
   display: flex;
+}
+body .App .game-container .table-container {
+  background: white;
 }
 body .App .game-container .table-container table {
   border: 2px solid #828488;
@@ -49,6 +57,7 @@ body .App .game-container .table-container table td .cInput {
   text-align: center;
   border: 1px solid darkgrey;
   cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
 }
 body .App .game-container .table-container table .bottom-border {
   border-bottom: 2px solid #828488;
@@ -56,14 +65,13 @@ body .App .game-container .table-container table .bottom-border {
 body .App .game-container .table-container table .right-border {
   border-right: 2px solid #828488;
 }
-body .App .game-container .upper-btn-container,
-body .App .game-container .lower-btn-container {
+body .App .game-container .left-btn-container,
+body .App .game-container .right-btn-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
 }
 body .App .game-container button {
-  -webkit-appearance: none;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -75,13 +83,12 @@ body .App .game-container button {
   cursor: pointer;
   width: 50px;
   height: 40px;
-  background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%);
   border-radius: 30px;
   border: 1px solid #8f9092;
-  box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 3px 0 #cecfd1;
+  box-shadow: -3px -3px 9px rgba(255, 255, 255, 0.45), 3px 3px 9px rgba(94, 104, 121, 0.3);
   transition: all 0.2s ease;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 0.6rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #606060;
   text-shadow: 0 1px #fff;
@@ -127,4 +134,17 @@ body .App .game-container #solve-btn {
 }
 body .App .game-container #reset-btn {
   color: black;
+}
+body .App #msg-div {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+body .App #msg-div h4 {
+  background: white;
+  padding: 0.5rem 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 20px;
 }/*# sourceMappingURL=style.css.map */

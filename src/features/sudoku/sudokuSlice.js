@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { recSolveGame, compareGames } from '../../handlers';
+import {
+  recSolveGame,
+  compareGames,
+  messages,
+  checkOnInputChange,
+} from '../../handlers';
 
 const initialState = {
   difficulty: 'easy',
-  isSolved: false,
-  isSolvable: false,
-  isIncorrect: false,
-  clearMsg: false,
   easy: [
     [-1, 5, -1, 9, -1, -1, -1, -1, -1],
     [8, -1, -1, -1, 4, -1, 3, -1, 7],
@@ -50,17 +51,17 @@ const sudokuSlice = createSlice({
   reducers: {
     easyGame: (state) => {
       state.difficulty = 'easy';
-      state.clearMsg = true;
+      messages('reset');
     },
 
     mediumGame: (state) => {
       state.difficulty = 'medium';
-      state.clearMsg = true;
+      messages('reset');
     },
 
     hardGame: (state) => {
       state.difficulty = 'hard';
-      state.clearMsg = true;
+      messages('reset');
     },
 
     solveGame: (state, action) => {
@@ -78,18 +79,21 @@ const sudokuSlice = createSlice({
       } else if (difficulty === 'hard') {
         state.hard = game;
       }
-      state.clearMsg = true;
+      messages('reset');
     },
     resetGame: (state, action) => {
       let difficulty = action.payload.difficulty;
+      messages('reset');
       if (difficulty === 'easy') {
+        messages('reset');
         state.easy = initialState.easy;
       } else if (difficulty === 'medium') {
+        messages('reset');
         state.medium = initialState.medium;
       } else if (difficulty === 'hard') {
+        messages('reset');
         state.hard = initialState.hard;
       }
-      state.clearMsg = true;
     },
     checkSolution: (state, action) => {
       let changedArray = action.payload.array;
@@ -112,15 +116,15 @@ const sudokuSlice = createSlice({
 
       let comp = compareGames(changedArray, game);
       if (comp.isSolved) {
-        state.isSolved = true;
+        messages('solved');
       } else if (comp.isSolvable) {
-        state.isSolvable = true;
+        messages('correct');
       } else {
-        state.isIncorrect = true;
+        messages('error');
       }
-      // state.clearMsg = true;
     },
     onInputChange: (state, action) => {
+      console.log('action', action);
       let value = action.payload.value;
       let row = action.payload.row;
       let col = action.payload.col;
@@ -133,14 +137,23 @@ const sudokuSlice = createSlice({
       if (intValue > 0 && intValue < 10) {
         console.log('valid number');
         let grid = originalCopy(array);
+        console.log('grid: ', grid);
+        console.log('array: ', array);
         grid[row][col] = intValue;
+        let originalGame = [];
         if (difficulty === 'easy') {
           state.easy = grid;
+          originalGame = initialState.easy;
         } else if (difficulty === 'medium') {
           state.medium = grid;
+          originalGame = initialState.medium;
         } else if (difficulty === 'hard') {
           state.hard = grid;
+          originalGame = initialState.hard;
         }
+
+        let game = originalCopy(originalGame);
+        checkOnInputChange(game, grid);
       }
     },
   },

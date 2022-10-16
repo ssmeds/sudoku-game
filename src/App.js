@@ -4,7 +4,7 @@ function App() {
   return (
     <div className='App'>
       <main>
-        <h1>Soduko</h1>
+        <h1>Soduko Game</h1>
         <SudokuContainer />
       </main>
     </div>
