@@ -1,5 +1,6 @@
 # A simple Sudoku Game
 
+![Sudoku Game Preview](src/img/preview.png)
 
 ## To use this app
 
